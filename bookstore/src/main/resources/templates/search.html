@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+    <head>
+        <title>Book List</title>
+        <style>
+            @import url('https://fonts.googleapis.com/css?family=Pontano+Sans');
+body {
+  font-family: 'Pontano Sans', sans-serif;
+}
+
+img{
+  max-width: 100%;
+  min-height: 200px;
+  height: 200px;
+}
+.grid-item{
+  width: 90%;
+  margin: 10px auto;
+  padding: 5px;
+  border: 1px solid #999;
+  box-shadow: 1px 1px 2px #999;
+  border-bottom: 7px solid #FA7921;
+  min-height: 360px;
+}
+h4{
+  cursor: pointer;
+}
+h4.fav:after,h4:hover:after{
+  content: ' \2605';
+  color: rgb(255, 203, 0);
+}
+h4.fav:hover:after{
+  content: ' \2606';
+}
+a.btn-success{
+  margin-left: 10px;
+  background: #FA7921;
+  border: 1px solid #FA7921;
+  padding: 5px 30px;
+  border-radius: 0;
+  font-weight: bold;
+}
+
+.btn2 {
+  -webkit-animation-delay: 0.25s;
+  animation-delay: 0.25s;
+}
+
+.btn3 {
+  -webkit-animation-delay: 0.5s;
+  animation-delay: 0.5s;
+}
+p{
+  font-weight: bold;
+  color: #999;
+}
+        </style>
+    </head>
+    <body>
+        <div layout:fragment="content" class="row">
+        <div class="container">
+            <div id="banner" class="row banner">
+            <div class="mix col-sm-6 col-md-4 text-center"  th:each="book : ${books}">
+              <div class="grid-item">
+            <img th:src="${book.cover}" alt="" /></a>
+              <h4 th:id="${book.id}" th:text="${book.name}"></h4>
+              <p th:text = "${book.author}"></p>
+              <a th:href="@{'/show/'+${book.id}}" class="btn btn-success btn-buy">View</a>
+              </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    </body>
+</html>

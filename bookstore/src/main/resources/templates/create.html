@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="default">
+    <head>
+        <title>Add Book</title>
+    </head>
+    <body>
+        <div layout:fragment="content" class="row">
+            <div class="col-xs-8 col-md-8">
+                <h2>Add Book</h2>
+                <form action="/save">
+                    <div class="form-group">
+                        <label for="email">Book Name</label>
+                        <input type="text" class="form-control" name="name" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Book Description</label>
+                        <textarea class="form-control" name="description" cols="60" rows="3"></textarea>
+                    </div>
+                    <div class="form-group">
+                            <label for="email">Author</label>
+                            <input type="text" class="form-control" name="author" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Book Cover URL</label>
+                        <input type="url" class="form-control" name="cover" />
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Book Source URL</label>
+                        <input type="url" class="form-control" name="source" />
+                    </div>
+                    <div class="form-group">
+                            <label for="email">Category</label>
+                            <input type="text" class="form-control" name="category" />
+                        </div>
+                    <button type="submit" class="btn btn-success">Save</button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
